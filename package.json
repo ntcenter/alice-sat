@@ -1,8 +1,14 @@
 {
-    "name": "alice-sat",
-    "version": "0.6.1",
-    "directory": "/workspaces/alice-sat",
-    "dependencies": {
-      "some-package": "^1.0.0"
+    "name": "My Project",
+    "version": "1.0.0",
+    "description": "A brief description of my project",
+    "main": "sat.js",
+    "scripts": {
+      "start": "node sat.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ntcenter/alice-sat"
     }
   }
