@@ -1,0 +1,7 @@
+{
+    "name": "alice-sat",
+    "version": "0.6.1",
+    "dependencies": {
+      "some-package": "^1.0.0"
+    }
+  }
