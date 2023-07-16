@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Anychart libraries for the spiderweb diagram --> 
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-radar.min.js"></script>
+
+    <!-- Stylesheet for Anychart --> 
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.11.1/css/anychart-ui.min.css" />
+
+    <!-- My own stylesheet --> 
+    <link rel="stylesheet" type="text/css" href="sat.css">
+</head>
+
+<body>
+
+<div id="quizContainer">
+
+  <div class="group-title">Phase 1: Setting up clear expectations (feedup)</div>
+    <div id="G1">
+        <div class="question">Q1. I formulate and share learning goals, trajectories and/or expectations for citizenship education.</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G1Q1" value="1" />
+                <input type="radio" name="G1Q1" value="2" />
+                <input type="radio" name="G1Q1" value="3" />
+                <input type="radio" name="G1Q1" value="4" />
+                <input type="radio" name="G1Q1" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Q2. I formulate and share criteria for success on tasks related to citizenship education.</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G1Q2" value="1" />
+                <input type="radio" name="G1Q2" value="2" />
+                <input type="radio" name="G1Q2" value="3" />
+                <input type="radio" name="G1Q2" value="4" />
+                <input type="radio" name="G1Q2" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Q3. I discuss learning goals and learning trajectories with students. Suggestions of students are hereby taken into account.</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G1Q3" value="1" />
+                <input type="radio" name="G1Q3" value="2" />
+                <input type="radio" name="G1Q3" value="3" />
+                <input type="radio" name="G1Q3" value="4" />
+                <input type="radio" name="G1Q3" value="5" /> I always do this
+            </div>
+    
+        <div class="question">Q4. How capable do you hold yourself in phase 1 in general?</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G1Q4" value="1" />
+                <input type="radio" name="G1Q4" value="2" />
+                <input type="radio" name="G1Q4" value="3" />
+                <input type="radio" name="G1Q4" value="4" />
+                <input type="radio" name="G1Q4" value="5" /> I always do this
+            </div>
+    </div>
+
+
+  <div class="group-title">Phase 2: How to observe, collect data, measure…</div>
+    <div id="G2">
+        <div class="question">Question 1</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G2Q1" value="1" />
+                <input type="radio" name="G2Q1" value="2" />
+                <input type="radio" name="G2Q1" value="3" />
+                <input type="radio" name="G2Q1" value="4" />
+                <input type="radio" name="G2Q1" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Question 2</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G2Q2" value="1" />
+                <input type="radio" name="G2Q2" value="2" />
+                <input type="radio" name="G2Q2" value="3" />
+                <input type="radio" name="G2Q2" value="4" />
+                <input type="radio" name="G2Q2" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Question 3</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G2Q3" value="1" />
+                <input type="radio" name="G2Q3" value="2" />
+                <input type="radio" name="G2Q3" value="3" />
+                <input type="radio" name="G2Q3" value="4" />
+                <input type="radio" name="G2Q3" value="5" /> I always do this
+            </div>
+    
+        <div class="question">Question 4</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G2Q4" value="1" />
+                <input type="radio" name="G2Q4" value="2" />
+                <input type="radio" name="G2Q4" value="3" />
+                <input type="radio" name="G2Q4" value="4" />
+                <input type="radio" name="G2Q4" value="5" /> I always do this
+            </div>
+    </div>
+
+  <div class="group-title">Phase 3: Analyzing observations, data…</div>
+  <div id="G3">
+        <div class="question">Question 1</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G3Q1" value="1" />
+                <input type="radio" name="G3Q1" value="2" />
+                <input type="radio" name="G3Q1" value="3" />
+                <input type="radio" name="G3Q1" value="4" />
+                <input type="radio" name="G3Q1" value="5" /> I always do this
+            </div>
+        
+            <div class="question">Question 2</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G3Q2" value="1" />
+                <input type="radio" name="G3Q2" value="2" />
+                <input type="radio" name="G3Q2" value="3" />
+                <input type="radio" name="G3Q2" value="4" />
+                <input type="radio" name="G3Q2" value="5" /> I always do this
+            </div>
+        
+            <div class="question">Question 3</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G3Q3" value="1" />
+                <input type="radio" name="G3Q3" value="2" />
+                <input type="radio" name="G3Q3" value="3" />
+                <input type="radio" name="G3Q3" value="4" />
+                <input type="radio" name="G3Q3" value="5" /> I always do this
+            </div>
+    
+            <div class="question">Question 4</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G3Q4" value="1" />
+                <input type="radio" name="G3Q4" value="2" />
+                <input type="radio" name="G3Q4" value="3" />
+                <input type="radio" name="G3Q4" value="4" />
+                <input type="radio" name="G3Q4" value="5" /> I always do this
+            </div>
+  </div>
+
+
+  <div class="group-title">Phase 4: Communicating about learning trajectories (feedback)</div>
+    <div id="G4">
+        <div class="question">Question 1</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G4Q1" value="1" />
+                <input type="radio" name="G4Q1" value="2" />
+                <input type="radio" name="G4Q1" value="3" />
+                <input type="radio" name="G4Q1" value="4" />
+                <input type="radio" name="G4Q1" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Question 2</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G4Q2" value="1" />
+                <input type="radio" name="G4Q2" value="2" />
+                <input type="radio" name="G4Q2" value="3" />
+                <input type="radio" name="G4Q2" value="4" />
+                <input type="radio" name="G4Q2" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Question 3</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G4Q3" value="1" />
+                <input type="radio" name="G4Q3" value="2" />
+                <input type="radio" name="G4Q3" value="3" />
+                <input type="radio" name="G4Q3" value="4" />
+                <input type="radio" name="G4Q3" value="5" /> I always do this
+            </div>
+    
+        <div class="question">Question 4</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G4Q4" value="1" />
+                <input type="radio" name="G4Q4" value="2" />
+                <input type="radio" name="G4Q4" value="3" />
+                <input type="radio" name="G4Q4" value="4" />
+                <input type="radio" name="G4Q4" value="5" /> I always do this
+            </div>
+    </div>
+
+
+  <div class="group-title">Phase 5: Acting consequently, adapting learning (feedforward)</div>
+    <div id="G5">
+        <div class="question">Question 1</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G5Q1" value="1" />
+                <input type="radio" name="G5Q1" value="2" />
+                <input type="radio" name="G5Q1" value="3" />
+                <input type="radio" name="G5Q1" value="4" />
+                <input type="radio" name="G5Q1" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Question 2</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G5Q2" value="1" />
+                <input type="radio" name="G5Q2" value="2" />
+                <input type="radio" name="G5Q2" value="3" />
+                <input type="radio" name="G5Q2" value="4" />
+                <input type="radio" name="G5Q2" value="5" /> I always do this
+            </div>
+        
+        <div class="question">Question 3</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G5Q3" value="1" />
+                <input type="radio" name="G5Q3" value="2" />
+                <input type="radio" name="G5Q3" value="3" />
+                <input type="radio" name="G5Q3" value="4" />
+                <input type="radio" name="G5Q3" value="5" /> I always do this
+            </div>
+    
+        <div class="question">Question 4</div>
+            <div class="likert">
+                I never do this <input type="radio" name="G5Q4" value="1" />
+                <input type="radio" name="G5Q4" value="2" />
+                <input type="radio" name="G5Q4" value="3" />
+                <input type="radio" name="G5Q4" value="4" />
+                <input type="radio" name="G5Q4" value="5" /> I always do this
+            </div>
+    </div>
+
+    <button class="button" onclick="calculateScore()">Submit</button>
+
+    <!-- ??Should I move this entire div (container-result) outside of quizContainer div?? -->
+    <!-- ??Perhaps I do if I want then to pdf only the results+chart containers?? --> 
+    <div class="container-results">
+
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+
+            <div id="feedbackG1">
+                <span id="scoreG1"></span></br>
+                <span id="feedbackG1Msg"></span>
+            </div>
+
+            <div id="feedbackG2">
+                <span id="scoreG2"></span></br>
+                <span id="feedbackG2Msg"></span>
+            </div>
+
+            <div id="feedbackG3">
+                <span id="scoreG3"></span></br>
+                <span id="feedbackG3Msg"></span>
+            </div>
+
+            <div id="feedbackG4">
+                <span id="scoreG4"></span></br>
+                <span id="feedbackG4Msg"></span>
+            </div>
+
+            <div id="feedbackG5">
+                <span id="scoreG5"></span></br>
+                <span id="feedbackG5Msg"></span>
+            </div>
+
+        <!-- Spiderweb diagram goes here --> 
+        <div id="chartContainer"></div>
+
+    </div>
+
+</div>
+
+<!-- My .js file managing this html --> 
+<script src="sat.js"></script>
+
+</body>
+
+</html>
