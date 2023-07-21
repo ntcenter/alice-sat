@@ -176,6 +176,10 @@
     </div>
 
 
+<!-- Attempt to control PDF pagination manually --> 
+<div class="pageBreak"></div>
+
+
   <div class="group-title">Phase 5: Acting consequently, adapting learning (feedforward)</div>
     <div id="G5">
         <div class="question">Question 1</div>
@@ -216,16 +220,15 @@
     </div>
 
     <button class="button" onclick="calculateScore()">Submit</button>
-    
 
-    <!-- ??Should I move this entire div (container-result) outside of quizContainer div?? --> 
+    <!-- ??Should I move this entire div (container-result) outside of quizContainer div?? -->
+    <!-- ??Perhaps I do if I want then to produce a merged pdf?? --> 
     <div class="container-results">
 
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
 
-        <!-- ?? Find out how to split in two columns ONLY on large screens (don't bother if too complicated), else place them vertically  -->  
-        <div class="left-column">
-
-            <!-- Text-style results - clculated score and feedback for each of the 5 phases -->
             <div id="feedbackG1">
                 <span id="scoreG1"></span></br>
                 <span id="feedbackG1Msg"></span>
@@ -251,20 +254,35 @@
                 <span id="feedbackG5Msg"></span>
             </div>
 
-        </div>
-
         <!-- Spiderweb diagram goes here --> 
-        <div class="right-column"></div>
-
         <div id="chartContainer"></div>
-
 
     </div>
 
 </div>
 
+
+<button id="download">Download PDF</button>
+
+
 <!-- My .js file managing this html --> 
 <script src="sat.js"></script>
+
+
+
+
+
+<!-- html2pdf lib CDN --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+
+<script>
+    document.getElementById('download').addEventListener('click', function() {
+        const element = document.getElementById('quizContainer');
+        html2pdf().from(element).save();
+    });
+    </script>
 
 </body>
 

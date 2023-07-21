@@ -25,7 +25,7 @@ window.onload = function() {
         document.getElementById(scoreId).textContent = `${groupFullName} | Your score: ${total}/20`;
         document.getElementById(feedbackId).textContent = feedback;
 
-        return total;
+    return total;
     }
 
     //Provide feedback messages for each of the result tiers (msgs will be specific for each phase, hence the prima facie repeats)
@@ -57,64 +57,50 @@ window.onload = function() {
         }
     };
 
-    //Check if all questions are answered (else display browser alert at end of this code)
+    //Check if all questions are answered
     function validateAllQuestionsAnswered() {
         const groupIds = ['G1', 'G2', 'G3', 'G4', 'G5'];
         return groupIds.every(groupId => document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]:checked').length > 0);
     }
 
-    // Prepare results and feedback messages on pressing the Submit button
-    window.calculateScore = function () {
-        if (validateAllQuestionsAnswered()) {
-            const scores = ['G1', 'G2', 'G3', 'G4', 'G5'].map(groupId => 
-                calculateGroupScore(groupId, `score${groupId}`, `feedback${groupId}Msg`, feedbackMessages[groupId]));
-            const grandTotalScore = scores.reduce((acc, score) => acc + score, 0);
+// Prepare results and feedback messages on pressing the Submit button
+window.calculateScore = function () {
+    if (validateAllQuestionsAnswered()) {
+        const scores = ['G1', 'G2', 'G3', 'G4', 'G5'].map(groupId => 
+            calculateGroupScore(groupId, `score${groupId}`, `feedback${groupId}Msg`, feedbackMessages[groupId])
+        );
 
-            // Reset the progress bar width to 0 for start position of progress bar animation
-            const progressBar = document.querySelector('.progress');
-            progressBar.style.width = '0';
-
-            // Update the progress bar and grandTotalScore element
-            setTimeout(() => {
-            progressBar.style.width = `${grandTotalScore}%`;
-            progressBar.textContent = `Your overall score is ${grandTotalScore}/100`;
-            }, 100);
-
-            // Check if a previous instance of the chart exists and if yes, drops it 
-            // (for answer change and recalc/redraw on re-click Submit)
-            if (chart) {
-                chart.dispose();
-            }
-  
-            chart = anychart.radar();
-
-            // Supply data and labels for the chart
-            const data = scores.map((score, index) => ({ x: `Phase ${index + 1}`, value: score }));
-        
-            // Format chart area, line, and scale
-            let series = chart.area(data);
-            series.fill("rgba(139, 245, 39, 0.66)");
-            series.stroke("rgba(139, 245, 39, 1)");
-            chart.yScale().maximum(20);
-            chart.yScale().minimum(0);
-
-            // Format chart title (I am switching this off for now for layout reasons)
-            const title = chart.title();
-            title.enabled(false);
-
-            // Indicate how to call the chart from the HTML file
-            chart.container("chartContainer");
-
-            // Actually draw the chart  
-            chart.draw();
-
-            // Show the progress bar
-            const progressBarContainer = document.querySelector('.progress-bar');
-            progressBarContainer.style.display = 'block';
-
-        } else {
-            // Display browser alert if at least one question is unanswered      
-            alert('You eejit! You need to answer all questions! How am I supposed to give you feedback if you do not cooperate?!');
+        // Check if a previous instance of the chart exists and disposes of it if it finds one 
+        // (for answer change and recalc/redraw on re-click Submit)
+        if (chart) {
+            chart.dispose();
         }
+  
+        chart = anychart.radar();
+
+        // Supply data and labels for the chart
+        const data = scores.map((score, index) => ({ x: `Phase ${index + 1}`, value: score }));
+        
+        // Format chart area, line and scale
+        let series = chart.area(data);
+        series.fill("rgba(139, 245, 39, 0.66)");
+        series.stroke("rgba(139, 245, 39, 1)");
+        chart.yScale().maximum(20);
+        chart.yScale().minimum(0);
+
+        // Disable chart title
+        const title = chart.title();
+        title.enabled(false);
+
+        // Link to the html container where to place the chart
+        chart.container("chartContainer");
+
+        // Actually draw the chart  
+        chart.draw();
+    } else {
+        // Display browser alert if at least one question is unanswered      
+        alert('You eejit! You need to answer all questions! How am I supposed to give you feedback if you do not cooperate?!');
     }
-};
+}
+
+}
