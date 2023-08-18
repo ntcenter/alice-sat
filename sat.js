@@ -60,8 +60,15 @@ window.onload = function() {
     //Check if all questions are answered
     function validateAllQuestionsAnswered() {
         const groupIds = ['G1', 'G2', 'G3', 'G4', 'G5'];
-        return groupIds.every(groupId => document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]:checked').length > 0);
+        
+        return groupIds.every(groupId => {
+            const totalRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]').length;
+            const checkedRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]:checked').length;
+            
+            return totalRadioButtons === checkedRadioButtons && totalRadioButtons > 0;
+        });
     }
+
 
 // Prepare results and feedback messages on pressing the Submit button
 window.calculateScore = function () {
