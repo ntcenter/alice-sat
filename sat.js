@@ -65,7 +65,7 @@ window.onload = function() {
             const totalRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]').length;
             const checkedRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]:checked').length;
             
-            return totalRadioButtons === checkedRadioButtons && totalRadioButtons > 0;
+            return totalRadioButtons === checkedRadioButtons;
         });
     }
 
