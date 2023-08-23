@@ -57,17 +57,69 @@ window.onload = function() {
         }
     };
 
-    //Check if all questions are answered
     function validateAllQuestionsAnswered() {
+        //return validateAllQuestionsAnsweredAndy();
+        return validateAllQuestionsAnsweredVladi();
+    }
+
+    //Check if all questions are answered
+    function validateAllQuestionsAnsweredAndy() {
         const groupIds = ['G1', 'G2', 'G3', 'G4', 'G5'];
         
         return groupIds.every(groupId => {
+            console.log("validateAllQuestionsAnswered() groupId", groupId)
             const totalRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]').length;
+            console.log("validateAllQuestionsAnswered() totalRadioButtons", totalRadioButtons)
             const checkedRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]:checked').length;
+            console.log("validateAllQuestionsAnswered() checkedRadioButtons", checkedRadioButtons)
+
+            // Проверява дали във всяка група има по 4 бутона чекнати
+            // if (checkedRadioButtons == 4) return true;
+            // return false;
             
+            // Не пропуска дори през G1, понеже всяка група има 20 радиобутона, а макс 4 могат да са чекнати
             return totalRadioButtons === checkedRadioButtons;
         });
     }
+
+    //Check if all questions are answered
+    function validateAllQuestionsAnsweredVladi() {
+        const groupIds = ['G1', 'G2', 'G3', 'G4', 'G5'];
+        
+        return groupIds.every(groupId => {
+            //console.log("validateAllQuestionsAnswered() groupId", groupId)
+
+            const radioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]');
+            //console.log("validateAllQuestionsAnswered() radioButtons", radioButtons)
+            const checkedRadioButtons = document.getElementById(groupId).querySelectorAll('.likert input[type="radio"]:checked');
+            //console.log("validateAllQuestionsAnswered() checkedRadioButtons", checkedRadioButtons)
+
+            // Събираме имената на всичките радиобутони, без повторения, напр ['G3xQ1', 'G3xQ2', 'G3xQ3', 'G3xQ4']
+            const radioButtonsNames = Array.from(radioButtons).reduce(function(acc, radioButton) {
+                const radioButonName = radioButton.getAttribute("name");
+                if (acc.indexOf(radioButonName) < 0) acc.push(radioButonName);
+                return acc;
+            }, []);
+            //console.log("validateAllQuestionsAnswered() radioButtonsNames", radioButtonsNames)
+
+            // var radioButtonsNames = []
+            // for (i = 0, iLim = radioButtons.length; i < iLim; i++) {
+            //     const radioButonName = radioButton.getAttribute("name");
+            //     if (radioButtonsNames.indexOf(radioButonName) < 0) radioButtonsNames.push(radioButonName);
+            // }
+
+            // Събираме имената само на ЧЕКнатите радиобутони, без повторения, напр ['G3xQ1', 'G3xQ3', 'G3xQ4']
+            const checkedRadioButtonNames = Array.from(checkedRadioButtons).reduce(function(acc, radioButton) {
+                const radioButonName = radioButton.getAttribute("name");
+                if (acc.indexOf(radioButonName) < 0) acc.push(radioButonName);
+                return acc;
+            }, []);
+            //console.log("validateAllQuestionsAnswered() checkedRadioButtonNames", checkedRadioButtonNames)
+
+                   
+            return radioButtonsNames.length === checkedRadioButtonNames.length;
+        });
+    }    
 
 
 // Prepare results and feedback messages on pressing the Submit button
